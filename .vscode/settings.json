@@ -1,0 +1,4 @@
+{
+    "dart.closeDevTools": "ifOpened",
+    "dart.openDevTools": "flutter"
+}
