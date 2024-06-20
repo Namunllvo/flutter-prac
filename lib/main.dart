@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toonflix/widgets/Button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,45 +74,18 @@ class MyApp extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 20,
-                          horizontal: 50,
-                        ),
-                        child: Text(
-                          'Transfer',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
+                    Button(
+                      text: "Transfer",
+                      bgcolor: Color(0xFFF1B33B),
+                      textcolor: Colors.black,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 20,
-                          horizontal: 50,
-                        ),
-                        child: Text(
-                          'Request',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
+                    Button(
+                      text: "Request",
+                      bgcolor: Color(0xFF1F2123),
+                      textcolor: Colors.white,
                     ),
                   ],
                 ),
