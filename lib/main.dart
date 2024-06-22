@@ -1,151 +1,60 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toonflix/widgets/Button.dart';
-import 'package:toonflix/widgets/currency_card.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+// 위젯 자체
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int counter = 0;
+  void onclicked() {
+    // setState를 호출할 때마다 build를 다시 실행함
+    // 데이터 변화 counter를 꼭 setState에 넣을 필요는 없음 -- 변경되는 데이터를 setState 위에 올려두고 실행하면 굳이 setState에 넣지 않아도 변경된 데이터가 build에 적용됨
+    // 그러나 가독성을 위해서는 setState 함수에 넣기
+    setState(() {
+      counter = counter + 1;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: const Color(0xFF181818),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
+        backgroundColor: const Color(0xFFF4EDDB),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Click count',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 89,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          const Text(
-                            'Hey, Rachel',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 34,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'Welcome Back',
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    'Total Balance',
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.white.withOpacity(0.8),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 7,
-                  ),
-                  const Text(
-                    '\$5 194 482',
-                    style: TextStyle(
-                      fontSize: 48,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Button(
-                        text: "Transfer",
-                        bgcolor: Color(0xFFF1B33B),
-                        textcolor: Colors.black,
-                      ),
-                      Button(
-                        text: "Request",
-                        bgcolor: Color(0xFF1F2123),
-                        textcolor: Colors.white,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Wallets',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        'View All',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const CurrencyCard(
-                    name: 'Euro',
-                    code: 'EUR',
-                    amount: '6 428',
-                    icon: Icons.euro_symbol_rounded,
-                    isInverted: false,
-                    order: 0,
-                  ),
-                  const CurrencyCard(
-                    name: 'BitCoin',
-                    code: 'BTC',
-                    amount: '1 000 000',
-                    icon: Icons.currency_bitcoin_rounded,
-                    isInverted: true,
-                    order: -2,
-                  ),
-                  const CurrencyCard(
-                    name: 'Dollar',
-                    code: 'USD',
-                    amount: '1 968',
-                    icon: Icons.attach_money_sharp,
-                    isInverted: false,
-                    order: -4,
-                  ),
-                ],
+              Text(
+                '$counter',
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
               ),
-            ),
-          )),
+              IconButton(
+                iconSize: 40,
+                onPressed: onclicked,
+                icon: const Icon(
+                  Icons.add,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
