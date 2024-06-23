@@ -68,8 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '$totalSeconds',
-                // format(totalSeconds),
+                format(totalSeconds),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -116,8 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          '0',
-                          // '$totalPomodoros',
+                          '$totalPomodoros',
                           style: TextStyle(
                             fontSize: 48,
                             color:
