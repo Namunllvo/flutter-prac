@@ -17,9 +17,10 @@ class ApiService {
         // print(webtoon);
         // final toon = WebtoonModel.fromJson(webtoon);
         // print(toon.title);
-        webtoonInstances.add(WebtoonModel(webtoon));
+        final instance = WebtoonModel.fromJson(webtoon);
+        webtoonInstances.add(instance);
       }
-      print(webtoonInstances);
+      // print(webtoonInstances);
       return webtoonInstances;
     }
     throw Error();
