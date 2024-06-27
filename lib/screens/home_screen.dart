@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         future: webtoons, //await 비동기
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.builder(
+            return ListView.separated(
               itemBuilder: (context, index) {
                 var webtoon = snapshot.data![index];
                 print(index);
@@ -35,6 +35,9 @@ class HomeScreen extends StatelessWidget {
               },
               scrollDirection: Axis.horizontal,
               itemCount: snapshot.data!.length,
+              separatorBuilder: (context, index) => const SizedBox(
+                width: 20,
+              ),
             );
           } // snapshot 변화 확인
           return const Center(
