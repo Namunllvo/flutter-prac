@@ -52,8 +52,8 @@ class HomeScreen extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: snapshot.data!.length,
       padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 20,
+        vertical: 80,
+        horizontal: 30,
       ),
       itemBuilder: (context, index) {
         var webtoon = snapshot.data![index];
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const SizedBox(
-        width: 40, // 구분자 margin padding 따로 설정필요 X
+        width: 50, // 구분자 margin padding 따로 설정필요 X
       ),
     );
   }

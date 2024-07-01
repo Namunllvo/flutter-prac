@@ -69,15 +69,19 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 3,
-        backgroundColor: Colors.grey.withOpacity(0.5),
+        elevation: 5,
+        backgroundColor: Colors.grey.withOpacity(0.3),
         foregroundColor: Colors.green,
         actions: [
           IconButton(
             onPressed: onHeartTap,
             icon:
                 Icon(isLiked ? Icons.favorite : Icons.favorite_border_rounded),
-          )
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.share_sharp),
+          ),
         ],
         title: Text(
           widget.title,
