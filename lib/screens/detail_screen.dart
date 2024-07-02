@@ -69,6 +69,7 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true, // 웹툰이름 가운데 정렬
         elevation: 5,
         backgroundColor: Colors.grey.withOpacity(0.3),
         foregroundColor: Colors.green,
